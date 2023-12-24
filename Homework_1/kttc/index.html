@@ -1,0 +1,840 @@
+<html>
+    <head>
+        <title>Лучшие игроки и кланы. KTTC - Как только, так сразу. Сессионная статистика World of Tanks.</title>
+        <style>
+            *{
+                margin: 0;
+                padding: 0;
+            }
+            .header{
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 14px;
+                background: #FBFBFB url(https://kttc.ru/images/logo/bg_v2.svg) no-repeat scroll 50% 0;
+                background-size: cover;
+                border-bottom: 1px #DEDEDE solid;
+            }
+            .left{
+                display: flex;
+                align-items: center;
+            }
+            .burger{
+                border: 0;
+                margin: 4 10;
+                background-color: transparent;
+            }
+            .logo{
+                margin-left: 16;
+            }
+            .right{
+                display: flex;
+                align-items: center;
+            }
+            .textarea{
+                font: 14px sans-serif;
+                resize: none;
+                padding: 10px;
+                border-color: #aaa;
+                border-radius: 0;
+                border-right: 0;
+            }
+            .dropbox{
+                background-color: transparent;
+                width: 80px;
+                height: 38px;
+                border-color: #aaa;
+                border-radius: 0;
+                padding-left: 10px;
+                border-right: 0;
+            }
+            .find{
+                height: 38px;
+                width: 38px;
+                background-color: transparent;
+                border: 1px #aaa solid ;
+            }
+            .loupe{
+                width: 15px;
+            }
+            .language{
+                background-color: transparent;
+                font: 18px sans-serif;
+                color:#aaa;
+                border: 0;
+                margin: 0 15;
+            }
+            .enter{
+                background-color: transparent;
+                border: 1px #aaa solid;
+                padding: 12 18;
+            }
+            .content{
+                background-color: #f1f1f1;
+            }
+            .gotank{
+                display: flex;
+                justify-content: center;
+            }
+            body {
+                min-height: 100%;
+                font-family: 'Roboto', sans-serif;
+                font-size: 14px;
+                color: rgba(0, 0, 0, .8);
+            }
+            h2{
+                font-size: 1.75em;
+                letter-spacing: -0.025em;
+                color: #47463f;
+                margin-bottom: 0;
+                margin-left: 10px;
+            }
+            h1, h2, h3, h4, h5, h6 {
+                color: inherit;
+                font-weight: 500;
+                line-height: 1.75em;
+            }
+            p{
+                color: #999;
+                font-size: 1.25em;
+                position: relative;
+                margin-left: 10px;
+            }
+            .section{
+                border: 1px #DFDFDF solid;
+                width: 600px;
+                height: 620px;
+                background-color: #FBFBFB;
+                margin: 20px;
+                padding: 27px 15px;
+
+            }
+            .listitem{
+                display: flex;
+                align-items: center;
+                counter-increment: step-counter;
+                padding: 5px;
+                border-bottom: 1px #aaa solid;
+            }
+            .listitem > .span > a{
+                text-decoration: none;
+                color: #167AC9;
+                font-size: 18px;
+            }
+            .listitem > .span{
+                display: flex;
+                align-items: center;
+            }
+            .listitem > .span > .spaninside > a{
+                text-align: center;
+                text-decoration: none;
+                color: #167AC9;
+                font-size: 18px;
+                margin-left: 12px;
+            }
+            .listitem > .span > .spaninside {
+                display: flex; 
+                align-items: center;
+            }
+            .listitem > .span > span > img{
+                border-radius: 50%;
+                width: 30px;
+            }
+            .places{
+                margin-top: 20px;
+            }
+            .places li:before {
+                content: counter(step-counter);
+                width: 44px;
+                display: inline-block;
+                font-size: 20px;
+                border-radius: 20px;
+                text-align: center;
+                height: 40px;
+                line-height: 39px;
+                font-weight: bold;
+                color: #000000;
+                vertical-align: middle;
+                margin-left: 4px;
+                margin-right: 16px;
+            }
+            .places li:first-child:before {
+                background-color: gold;
+                color: white;
+                font-size: 22px;
+            }
+            .places li:nth-child(2):before {
+                background-color: silver;
+                color: white;
+                font-size: 22px;
+            }
+            .places li:nth-child(3):before {
+                background-color: #E8B17A;
+                color: white;
+                font-size: 22px;
+            }
+            li{
+                list-style: none;
+            }
+            *, *:before, *:after {
+                box-sizing: inherit;
+            }
+            .stats{
+                color: #c64cff;
+            }
+            .span{
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+            }
+            .top1000 > a{
+                text-decoration: none;
+                color: #167AC9;
+                font-size: 18px;
+            }
+            .top1000{
+                display: flex;
+                justify-content: end;
+                margin: 16 0;
+            }
+            .tables{
+                display: flex;
+                flex-wrap: wrap;
+            }
+            .divtocenter{
+                width: 100%;
+                display: flex;
+                justify-content: center;
+            }
+            footer{
+                background-color: #F8F8F8;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                padding: 30px;
+            }
+            footer > p{
+                margin: 10px;
+                font-size: 14px;
+                color: #aaa;
+            }
+            .inrow{
+                display: flex;
+            }
+            .inrow > p{
+                font-size: 14px;
+                color: #aaa;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="page">
+            <header class="header">
+                <div class="left">
+                    <button class="burger"><img src="burger.png" alt=""></button>
+                    <a href=""><img class="logo" src="https://kttc.ru/images/logo/kttc_logo.svg" alt="Лого"></a>
+                </div>
+                <div class="right">
+                    <div class="ta">
+                        <textarea class="textarea" cols="25" rows="1" placeholder="Введите ник или клан"></textarea>
+                    </div>
+                    <div>
+                        <select class="dropbox">
+                            <option class="option">Ник</option>
+                            <option class="option">Клан</option>
+                        </select>
+                    </div>
+                    <div >
+                        <button class="find"><img class="loupe" src="https://kttc.ru/images/search.svg" alt="Лупа"></button>
+                    </div>
+                    <div class="lg">
+                        <select class="language">
+                            <option class="option2">Ru</option>
+                            <option class="option2">En</option>
+                        </select>
+                    </div>
+                    <div>
+                        <button class="enter">Войти с Lesta ID</button>
+                    </div>
+                </div>
+            </header>
+
+            <div class="content">
+                <div class="gotank">
+                    <a href="https://click.track-lesta.ru/BQYH8Zxk">
+                        <img src="https://kttc.ru/images/wot/KKTC_Combat_Pass_970x250_LG_SPB_MT-1.jpg" alt="">
+                    </a>
+                </div>
+                <div class="tables">
+                    <div class="level910">
+                        <section class="section">
+                            <h2>Топ 10 игроков (WN8)</h2>
+                            <p>от 15к боев, ср. ур. техники 9-10</p>
+                            <ol class="places">
+                                <li class="listitem">
+                                    <div class="span">
+                                        <a href="https://kttc.ru/wot/ru/user/WoIfHeart/">WoIfHeart</a>
+                                        <span>
+                                            <span style="color:#c64cff">5895</span>
+                                            <span style="color:#25c2dd">28160</span>
+                                            <span style="color:#c64cff">(70%)</span>
+                                        </span>
+                                    </div>
+                                </li>
+                                <li class="listitem">
+                                    <div class="span">
+                                        <a href="https://kttc.ru/wot/ru/user/WoIfHeart/">Loisez</a>
+                                        <span>
+                                            <span style="color:#c64cff">5895</span>
+                                            <span style="color:#25c2dd">28160</span>
+                                            <span style="color:#c64cff">(70%)</span>
+                                        </span>
+                                    </div>
+                                </li>
+                                <li class="listitem">
+                                    <div class="span">
+                                        <a href="https://kttc.ru/wot/ru/user/WoIfHeart/">Stanlox</a>
+                                        <span>
+                                            <span style="color:#c64cff">5895</span>
+                                            <span style="color:#25c2dd">28160</span>
+                                            <span style="color:#c64cff">(70%)</span>
+                                        </span>
+                                    </div>
+                                </li>
+                                <li class="listitem">
+                                    <div class="span">
+                                        <a href="https://kttc.ru/wot/ru/user/WoIfHeart/">__NIDIN__</a>
+                                        <span>
+                                            <span style="color:#c64cff">5895</span>
+                                            <span style="color:#25c2dd">28160</span>
+                                            <span style="color:#c64cff">(70%)</span>
+                                        </span>
+                                    </div>
+                                </li>
+                                <li class="listitem">
+                                    <div class="span">
+                                        <a href="https://kttc.ru/wot/ru/user/WoIfHeart/">Sh0tnik</a>
+                                        <span>
+                                            <span style="color:#c64cff">5895</span>
+                                            <span style="color:#25c2dd">28160</span>
+                                            <span style="color:#c64cff">(70%)</span>
+                                        </span>
+                                    </div>
+                                </li>
+                                <li class="listitem">
+                                    <div class="span">
+                                        <a href="https://kttc.ru/wot/ru/user/WoIfHeart/">Diffynder</a>
+                                        <span>
+                                            <span style="color:#c64cff">5895</span>
+                                            <span style="color:#25c2dd">28160</span>
+                                            <span style="color:#c64cff">(70%)</span>
+                                        </span>
+                                    </div>
+                                </li>
+                                <li class="listitem">
+                                    <div class="span">
+                                        <a href="https://kttc.ru/wot/ru/user/WoIfHeart/">Wierer</a>
+                                        <span>
+                                            <span style="color:#c64cff">5895</span>
+                                            <span style="color:#25c2dd">28160</span>
+                                            <span style="color:#c64cff">(70%)</span>
+                                        </span>
+                                    </div>
+                                </li>
+                                <li class="listitem">
+                                    <div class="span">
+                                        <a href="https://kttc.ru/wot/ru/user/WoIfHeart/">Summer_hoodrich</a>
+                                        <span>
+                                            <span style="color:#c64cff">5895</span>
+                                            <span style="color:#25c2dd">28160</span>
+                                            <span style="color:#c64cff">(70%)</span>
+                                        </span>
+                                    </div>
+                                </li>
+                                <li class="listitem">
+                                    <div class="span">
+                                        <a href="https://kttc.ru/wot/ru/user/WoIfHeart/">Wikf_</a>
+                                        <span>
+                                            <span style="color:#c64cff">5895</span>
+                                            <span style="color:#25c2dd">28160</span>
+                                            <span style="color:#c64cff">(70%)</span>
+                                        </span>
+                                    </div>
+                                </li>
+                                <li class="listitem">
+                                    <div class="span">
+                                        <a href="https://kttc.ru/wot/ru/user/WoIfHeart/">selael</a>
+                                        <span>
+                                            <span style="color:#c64cff">5895</span>
+                                            <span style="color:#25c2dd">28160</span>
+                                            <span style="color:#c64cff">(70%)</span>
+                                        </span>
+                                    </div>
+                                </li>
+                            </ol>
+                            <div class="top1000">
+                                <a href="">Топ 1000 игроков WN8</a>
+                            </div>
+                        </section>
+                    </div>
+
+                    <div class="level78">
+                        <section class="section">
+                            <h2>Топ 10 игроков (WN8)</h2>
+                            <p>от 15к боев, ср. ур. техники 7-8</p>
+                            <ol class="places">
+                                <li class="listitem">
+                                    <div class="span">
+                                        <a href="https://kttc.ru/wot/ru/user/WoIfHeart/">Exord</a>
+                                        <span>
+                                            <span style="color:#c64cff">5895</span>
+                                            <span style="color:#25c2dd">28160</span>
+                                            <span style="color:#c64cff">(70%)</span>
+                                        </span>
+                                    </div>
+                                </li>
+                                <li class="listitem">
+                                    <div class="span">
+                                        <a href="https://kttc.ru/wot/ru/user/WoIfHeart/">Geksi</a>
+                                        <span>
+                                            <span style="color:#c64cff">5895</span>
+                                            <span style="color:#25c2dd">28160</span>
+                                            <span style="color:#c64cff">(70%)</span>
+                                        </span>
+                                    </div>
+                                </li>
+                                <li class="listitem">
+                                    <div class="span">
+                                        <a href="https://kttc.ru/wot/ru/user/WoIfHeart/">Delkonix</a>
+                                        <span>
+                                            <span style="color:#c64cff">5895</span>
+                                            <span style="color:#25c2dd">28160</span>
+                                            <span style="color:#c64cff">(70%)</span>
+                                        </span>
+                                    </div>
+                                </li>
+                                <li class="listitem">
+                                    <div class="span">
+                                        <a href="https://kttc.ru/wot/ru/user/WoIfHeart/">iMeeGo</a>
+                                        <span>
+                                            <span style="color:#c64cff">5895</span>
+                                            <span style="color:#25c2dd">28160</span>
+                                            <span style="color:#c64cff">(70%)</span>
+                                        </span>
+                                    </div>
+                                </li>
+                                <li class="listitem">
+                                    <div class="span">
+                                        <a href="https://kttc.ru/wot/ru/user/WoIfHeart/">Straik</a>
+                                        <span>
+                                            <span style="color:#c64cff">5895</span>
+                                            <span style="color:#25c2dd">28160</span>
+                                            <span style="color:#c64cff">(70%)</span>
+                                        </span>
+                                    </div>
+                                </li>
+                                <li class="listitem">
+                                    <div class="span">
+                                        <a href="https://kttc.ru/wot/ru/user/WoIfHeart/">GODS_</a>
+                                        <span>
+                                            <span style="color:#c64cff">5895</span>
+                                            <span style="color:#25c2dd">28160</span>
+                                            <span style="color:#c64cff">(70%)</span>
+                                        </span>
+                                    </div>
+                                </li>
+                                <li class="listitem">
+                                    <div class="span">
+                                        <a href="https://kttc.ru/wot/ru/user/WoIfHeart/">Korneplod</a>
+                                        <span>
+                                            <span style="color:#c64cff">5895</span>
+                                            <span style="color:#25c2dd">28160</span>
+                                            <span style="color:#c64cff">(70%)</span>
+                                        </span>
+                                    </div>
+                                </li>
+                                <li class="listitem">
+                                    <div class="span">
+                                        <a href="https://kttc.ru/wot/ru/user/WoIfHeart/">Lucky_Bloke</a>
+                                        <span>
+                                            <span style="color:#c64cff">5895</span>
+                                            <span style="color:#25c2dd">28160</span>
+                                            <span style="color:#c64cff">(70%)</span>
+                                        </span>
+                                    </div>
+                                </li>
+                                <li class="listitem">
+                                    <div class="span">
+                                        <a href="https://kttc.ru/wot/ru/user/WoIfHeart/">kttc_rename_33571698</a>
+                                        <span>
+                                            <span style="color:#c64cff">5895</span>
+                                            <span style="color:#25c2dd">28160</span>
+                                            <span style="color:#c64cff">(70%)</span>
+                                        </span>
+                                    </div>
+                                </li>
+                                <li class="listitem">
+                                    <div class="span">
+                                        <a href="https://kttc.ru/wot/ru/user/WoIfHeart/">_Anabolic_</a>
+                                        <span>
+                                            <span style="color:#c64cff">5895</span>
+                                            <span style="color:#25c2dd">28160</span>
+                                            <span style="color:#c64cff">(70%)</span>
+                                        </span>
+                                    </div>
+                                </li>
+                            </ol>
+                            <div class="top1000">
+                                <a href="">Топ 1000 игроков WN8</a>
+                            </div>
+                        </section>
+                    </div>
+
+                    <div class="level16">
+                        <section class="section">
+                            <h2>Топ 10 игроков (WN8)</h2>
+                            <p>от 15к боев, ср. ур. техники 1-6</p>
+                            <ol class="places">
+                                <li class="listitem">
+                                    <div class="span">
+                                        <a href="https://kttc.ru/wot/ru/user/WoIfHeart/">Bad_for_enemy_team</a>
+                                        <span>
+                                            <span style="color:#c64cff">5895</span>
+                                            <span style="color:#25c2dd">28160</span>
+                                            <span style="color:#c64cff">(70%)</span>
+                                        </span>
+                                    </div>
+                                </li>
+                                <li class="listitem">
+                                    <div class="span">
+                                        <a href="https://kttc.ru/wot/ru/user/WoIfHeart/">KPblC_A</a>
+                                        <span>
+                                            <span style="color:#c64cff">5895</span>
+                                            <span style="color:#25c2dd">28160</span>
+                                            <span style="color:#c64cff">(70%)</span>
+                                        </span>
+                                    </div>
+                                </li>
+                                <li class="listitem">
+                                    <div class="span">
+                                        <a href="https://kttc.ru/wot/ru/user/WoIfHeart/">Camper_Antilooser</a>
+                                        <span>
+                                            <span style="color:#c64cff">5895</span>
+                                            <span style="color:#25c2dd">28160</span>
+                                            <span style="color:#c64cff">(70%)</span>
+                                        </span>
+                                    </div>
+                                </li>
+                                <li class="listitem">
+                                    <div class="span">
+                                        <a href="https://kttc.ru/wot/ru/user/WoIfHeart/">VOLKOV_82</a>
+                                        <span>
+                                            <span style="color:#c64cff">5895</span>
+                                            <span style="color:#25c2dd">28160</span>
+                                            <span style="color:#c64cff">(70%)</span>
+                                        </span>
+                                    </div>
+                                </li>
+                                <li class="listitem">
+                                    <div class="span">
+                                        <a href="https://kttc.ru/wot/ru/user/WoIfHeart/">O_GENRY</a>
+                                        <span>
+                                            <span style="color:#c64cff">5895</span>
+                                            <span style="color:#25c2dd">28160</span>
+                                            <span style="color:#c64cff">(70%)</span>
+                                        </span>
+                                    </div>
+                                </li>
+                                <li class="listitem">
+                                    <div class="span">
+                                        <a href="https://kttc.ru/wot/ru/user/WoIfHeart/">O__HECMEPTHblu__</a>
+                                        <span>
+                                            <span style="color:#c64cff">5895</span>
+                                            <span style="color:#25c2dd">28160</span>
+                                            <span style="color:#c64cff">(70%)</span>
+                                        </span>
+                                    </div>
+                                </li>
+                                <li class="listitem">
+                                    <div class="span">
+                                        <a href="https://kttc.ru/wot/ru/user/WoIfHeart/">KyponaTkuH</a>
+                                        <span>
+                                            <span style="color:#c64cff">5895</span>
+                                            <span style="color:#25c2dd">28160</span>
+                                            <span style="color:#c64cff">(70%)</span>
+                                        </span>
+                                    </div>
+                                </li>
+                                <li class="listitem">
+                                    <div class="span">
+                                        <a href="https://kttc.ru/wot/ru/user/WoIfHeart/">kttc_rename_125581623</a>
+                                        <span>
+                                            <span style="color:#c64cff">5895</span>
+                                            <span style="color:#25c2dd">28160</span>
+                                            <span style="color:#c64cff">(70%)</span>
+                                        </span>
+                                    </div>
+                                </li>
+                                <li class="listitem">
+                                    <div class="span">
+                                        <a href="https://kttc.ru/wot/ru/user/WoIfHeart/">Ukroos</a>
+                                        <span>
+                                            <span style="color:#c64cff">5895</span>
+                                            <span style="color:#25c2dd">28160</span>
+                                            <span style="color:#c64cff">(70%)</span>
+                                        </span>
+                                    </div>
+                                </li>
+                                <li class="listitem">
+                                    <div class="span">
+                                        <a href="https://kttc.ru/wot/ru/user/WoIfHeart/">Nikulia_metkiy</a>
+                                        <span>
+                                            <span style="color:#c64cff">5895</span>
+                                            <span style="color:#25c2dd">28160</span>
+                                            <span style="color:#c64cff">(70%)</span>
+                                        </span>
+                                    </div>
+                                </li>
+                            </ol>
+                            <div class="top1000">
+                                <a href="">Топ 1000 игроков WN8</a>
+                            </div>
+                        </section>
+                    </div>
+
+                    <div class="at90">
+                        <section class="section">
+                            <h2>Лучшие 10 кланов (WN8)</h2>
+                            <p>от 90 игроков</p>
+                            <ol class="places">
+                                <li class="listitem">
+                                    <div class="span">
+                                        <span class="spaninside">
+                                            <img src="https://lesta.ru/clans/media/clans/emblems/cl_249/474249/emblem_64x64.png" alt="">
+                                            <a href="https://kttc.ru/wot/ru/user/WoIfHeart/">ERETC</a>    
+                                        </span>
+                                        </span>
+                                        <span>
+                                            <span style="color:#c64cff">3772</span>
+                                        </span>
+                                    </div>
+                                </li>
+                                <li class="listitem">
+                                    <div class="span">
+                                        <span class="spaninside">
+                                            <img src="https://lesta.ru/clans/media/clans/emblems/cl_842/418842/emblem_64x64.png" alt="" style="background-color: #9A1AFB;">
+                                            <a href="https://kttc.ru/wot/ru/user/WoIfHeart/">ASUPA</a>    
+                                        </span>
+                                        </span>
+                                        <span>
+                                            <span style="color:#c64cff">3302</span>
+                                        </span>
+                                    </div>
+                                </li>
+                                <li class="listitem">
+                                    <div class="span">
+                                        <span class="spaninside">
+                                            <img src="	https://lesta.ru/clans/media/clans/emblems/cl_152/475152/emblem_64x64.png" alt="" style="background-color: #2917EC;">
+                                            <a href="https://kttc.ru/wot/ru/user/WoIfHeart/">ALEN1</a>    
+                                        </span>
+                                        </span>
+                                        <span>
+                                            <span style="color:#c64cff">3302</span>
+                                        </span>
+                                    </div>
+                                </li>
+                                <li class="listitem">
+                                    <div class="span">
+                                        <span class="spaninside">
+                                            <img src="https://lesta.ru/clans/media/clans/emblems/cl_381/23381/emblem_64x64.png" alt="" style="background-color: #FC0000;">
+                                            <a href="https://kttc.ru/wot/ru/user/WoIfHeart/">CYS</a>    
+                                        </span>
+                                        </span>
+                                        <span>
+                                            <span style="color:#c64cff">3302</span>
+                                        </span>
+                                    </div>
+                                </li>
+                                <li class="listitem">
+                                    <div class="span">
+                                        <span class="spaninside">
+                                            <img src="	https://lesta.ru/clans/media/clans/emblems/cl_079/63079/emblem_64x64.png" alt="" style="background-color: #FFD700;">
+                                            <a href="https://kttc.ru/wot/ru/user/WoIfHeart/">MAX-T</a>    
+                                        </span>
+                                        </span>
+                                        <span>
+                                            <span style="color:#c64cff">3302</span>
+                                        </span>
+                                    </div>
+                                </li>
+                                <li class="listitem">
+                                    <div class="span">
+                                        <span class="spaninside">
+                                            <img src="	https://lesta.ru/clans/media/clans/emblems/cl_983/11983/emblem_64x64.png" alt="" style="background-color: #FAD105;">
+                                            <a href="https://kttc.ru/wot/ru/user/WoIfHeart/">IN-TY</a>    
+                                        </span>
+                                        </span>
+                                        <span>
+                                            <span style="color:#c64cff">3302</span>
+                                        </span>
+                                    </div>
+                                </li>
+                                <li class="listitem">
+                                    <div class="span">
+                                        <span class="spaninside">
+                                            <img src="	https://lesta.ru/clans/media/clans/emblems/cl_196/446196/emblem_64x64.png" alt="" style="background-color: #E90BED;">
+                                            <a href="https://kttc.ru/wot/ru/user/WoIfHeart/">UTUTU</a>    
+                                        </span>
+                                        </span>
+                                        <span>
+                                            <span style="color:#c64cff">3302</span>
+                                        </span>
+                                    </div>
+                                </li>
+                                <li class="listitem">
+                                    <div class="span">
+                                        <span class="spaninside">
+                                            <img src="	https://lesta.ru/clans/media/clans/emblems/cl_058/104058/emblem_64x64.png" alt="" style="background-color: #A302FF;">
+                                            <a href="https://kttc.ru/wot/ru/user/WoIfHeart/">T-MAN</a>    
+                                        </span>
+                                        </span>
+                                        <span>
+                                            <span style="color:#c64cff">3302</span>
+                                        </span>
+                                    </div>
+                                </li>
+                                <li class="listitem">
+                                    <div class="span">
+                                        <span class="spaninside">
+                                            <img src="https://lesta.ru/clans/media/clans/emblems/cl_406/21406/emblem_64x64.png" alt="" style="background-color: #FFFF00;">
+                                            <a href="https://kttc.ru/wot/ru/user/WoIfHeart/">CHESS</a>    
+                                        </span>
+                                        </span>
+                                        <span>
+                                            <span style="color:#c64cff">3302</span>
+                                        </span>
+                                    </div>
+                                </li>
+                                <li class="listitem">
+                                    <div class="span">
+                                        <span class="spaninside">
+                                            <img src="	https://lesta.ru/clans/media/clans/emblems/cl_406/601406/emblem_64x64.png" alt="" style="background-color: #FF0000;">
+                                            <a href="https://kttc.ru/wot/ru/user/WoIfHeart/">XOT</a>    
+                                        </span>
+                                        </span>
+                                        <span>
+                                            <span style="color:#c64cff">3302</span>
+                                        </span>
+                                    </div>
+                                </li>
+                            </ol>
+                            <div class="top1000">
+                                <a href="">Топ 1000 кланов WN8</a>
+                            </div>
+                        </section>
+                    </div>
+                    <div class="divtocenter">
+                        <div class="level16">
+                            <section class="section">
+                                <h2>Топ 10 игроков (за прошлый месяц)</h2>
+                                <p>от 100 боев</p>
+                                <ol class="places">
+                                    <li class="listitem">
+                                        <div class="span">
+                                            <a href="https://kttc.ru/wot/ru/user/WoIfHeart/">_Jukuma_</a>
+                                            <span>
+                                                <span style="color:#c64cff">10200</span>
+                                            </span>
+                                        </div>
+                                    </li>
+                                    <li class="listitem">
+                                        <div class="span">
+                                            <a href="https://kttc.ru/wot/ru/user/WoIfHeart/">Gryberll</a>
+                                            <span>
+                                                <span style="color:#c64cff">9813</span>
+                                            </span>
+                                        </div>
+                                    </li>
+                                    <li class="listitem">
+                                        <div class="span">
+                                            <a href="https://kttc.ru/wot/ru/user/WoIfHeart/">FuriousGFX</a>
+                                            <span>
+                                                <span style="color:#c64cff">9292</span>
+                                            </span>
+                                        </div>
+                                    </li>
+                                    <li class="listitem">
+                                        <div class="span">
+                                            <a href="https://kttc.ru/wot/ru/user/WoIfHeart/">Yamamoto</a>
+                                            <span>
+                                                <span style="color:#c64cff">9243</span>
+                                            </span>
+                                        </div>
+                                    </li>
+                                    <li class="listitem">
+                                        <div class="span">
+                                            <a href="https://kttc.ru/wot/ru/user/WoIfHeart/">_STELS_rus</a>
+                                            <span>
+                                                <span style="color:#c64cff">8812</span>
+                                            </span>
+                                        </div>
+                                    </li>
+                                    <li class="listitem">
+                                        <div class="span">
+                                            <a href="https://kttc.ru/wot/ru/user/WoIfHeart/">_YOK_trovo_exTenezar</a>
+                                            <span>
+                                                <span style="color:#c64cff">8761</span>
+                                            </span>
+                                        </div>
+                                    </li>
+                                    <li class="listitem">
+                                        <div class="span">
+                                            <a href="https://kttc.ru/wot/ru/user/WoIfHeart/">LarryWilliams</a>
+                                            <span>
+                                                <span style="color:#c64cff">8671</span>
+                                            </span>
+                                        </div>
+                                    </li>
+                                    <li class="listitem">
+                                        <div class="span">
+                                            <a href="https://kttc.ru/wot/ru/user/WoIfHeart/">D0N_PEDR0_</a>
+                                            <span>
+                                                <span style="color:#c64cff">8273</span>
+                                            </span>
+                                        </div>
+                                    </li>
+                                    <li class="listitem">
+                                        <div class="span">
+                                            <a href="https://kttc.ru/wot/ru/user/WoIfHeart/">Samter</a>
+                                            <span>
+                                                <span style="color:#c64cff">8192</span>
+                                            </span>
+                                        </div>
+                                    </li>
+                                    <li class="listitem">
+                                        <div class="span">
+                                            <a href="https://kttc.ru/wot/ru/user/WoIfHeart/">XeX_He_TaK</a>
+                                            <span>
+                                                <span style="color:#c64cff">8148</span>
+                                            </span>
+                                        </div>
+                                    </li>
+                                </ol>
+                                <div class="top1000">
+                                    <a href="">Топ 10 игроков (за прошлый месяц) (WN8)</a>
+                                </div>
+                            </section>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <footer>
+                <div class="inrow">
+                    <p>© 2013 - 2023 KTTC. Все права защищены. 12+   | </p>
+                    <p>С 2013-2020 года Официальный фан ресурс World of Tanks. С 2020 года не являемся такими.</p>
+                </div>
+                <p>hi@kttc.ru</p>
+            </footer>
+        </div>
+    </body>
+</html>

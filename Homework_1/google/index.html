@@ -1,0 +1,161 @@
+<html>
+    <head>
+        <title>Google</title>
+        <link rel="icon" href="google.ico" type="image/x-icon"">
+        <style>
+            
+            a{
+                font-family: arial,sans-serif;
+                color:black;
+                font-size: 13;
+                text-decoration: none;
+                padding-right: 15px;
+            }
+            a:hover{
+                text-decoration: underline;
+            }
+            .mailandpict{
+                margin-right: 15px;
+                margin-top: 9px;
+                display: flex;
+                justify-content: flex-end;
+                align-items: center;
+            }
+            .google{
+                display:flex;flex-direction:column;align-items:center;
+                margin-top: 49px;
+            }
+            .rect{
+                width: 1170px;
+                max-width: 100%;
+                margin: 27 auto;
+            }
+            .btns{
+                display: flex;
+                justify-content:center;
+            }
+            .search{
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+                padding-left: 13px;
+            }
+            #ta{
+                color: black;
+                font-family: arial;
+                font-size: 16;
+                border: 0;
+                margin-left: 10px;
+            }
+            .keyboard{
+                padding-left: 25px;
+            }
+            .keyboard, .micro, .camera{
+                display: flex;
+                align-items: center;
+                padding-right: 25px;
+            }
+            .footer{
+                display: flex;
+                flex-direction: column;
+                justify-content: end;
+                width:100%;height:399px;
+            }
+            .f1{
+                display: flex;
+                width: 100%;
+                height: 47px;
+                background-color: #f3f3f3;
+                color: #70757a;
+                font-family: arial;
+                font-size: 15px;
+                align-items: center;
+                padding-left: 30px; 
+                box-sizing: border-box;
+            }
+            .f2{
+                display: flex;
+                width: 100%;
+                height: 92px;
+                background-color: #f3f3f3;
+                padding-top: 14px;
+                padding-left: 12px;
+                box-sizing: border-box;
+                flex-direction: column;
+            }
+            .f21{
+                display: flex;
+                justify-content: center;
+            }
+            .f22{
+                display: flex;
+                margin-top: 31px;
+                padding-left: 23px;
+                justify-content: space-between;
+            }
+            .f221, .f222{
+                display: flex;
+            }
+            *{
+                margin: 0;
+                padding: 0;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="header">
+            <div class="mailandpict">
+                <a href="https://mail.google.com/mail/?authuser=0&ogbl">Почта</a>
+                <a href="https://www.google.com/imghp?hl=ru&authuser=0&ogbl">Картинки</a>
+                <img src="more.png" alt="" style="width: 25px; height: 25px; margin-left: 12px;margin-top: 2px; box-sizing: border-box;">
+                <img src="account.png" alt="" style="width: 38px; height: 38px; box-sizing: border-box;margin-top: 3px; margin-left: 16px;">
+            </div>
+        </div>
+
+        <div class="google">
+            <img alt="Google" height="92" 
+            src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png">
+        </div>
+       
+        <div class="rect" style="width:580px;height:45px;border:1px solid #0000002a; border-radius:21px;">
+            <div class="search" style="width:580px;height:45px;">
+                <img id="find" src="find.png" alt="Лупа" width="20px" >
+                <textarea id="ta" cols="50" rows="1" ></textarea>
+                <img class="keyboard" src="keyboard.png" alt="Клавиатура" width="20px">
+                <img class="micro" src="micro.png" alt="Микрофон" width="20px">
+                <img class="camera" src="camera.png" alt="Камера" width="20px">
+            </div>
+            <div class="btns">
+                <button style="margin-top: 30px; border-radius: 5px; width: 128px; height: 35px; background-color: #f8f8f8; border: 0; font-family: arial; color: #000; font-size: 14;">Поиск в Google</button>
+                <form action="https://www.google.com/doodles">
+                    <button style="margin-top: 30px; margin-left: 10px; border-radius: 5px; width: 128px; height: 35px; background-color: #f8f8f8; border: 0; font-family: arial; color: #000; font-size: 14;">Мне повезёт!</button>
+                </form>
+            </div>
+        </div>
+        <div class="footer">
+            <div class="f1">
+                <p>Россия</p>
+            </div>
+            <hr>
+            <div class="f2">
+                <div class="f21">
+                    <img src="leaf.png" alt="Листик" width="14px" height="14px">
+                    <a href="https://sustainability.google/intl/ru/carbon-free/?utm_source=googlehpfooter&utm_medium=housepromos&utm_campaign=bottom-footer&utm_content=#home" style="font-family: arial; color: #70757a; font-size: 14; padding-left: 5px;">Наше третье десятилетие борьбы с изменением климата</a>    
+                </div>
+                <div class="f22">
+                    <div class="f221">
+                        <a href="https://about.google/?utm_source=google-RU&utm_medium=referral&utm_campaign=hp-footer&fg=1" style="color: #70757a; font-family: arial; font-size: 14px; padding-right: 30px;">Всё о Google</a>
+                        <a href="https://www.google.com/intl/ru_ru/ads/?subid=ww-ww-et-g-awa-a-g_hpafoot1_1!o2&utm_source=google.com&utm_medium=referral&utm_campaign=google_hpafooter&fg=1" style="color: #70757a; font-family: arial; font-size: 14px; padding-right: 30px;">Реклама</a>
+                        <a href="https://www.google.com/services/?subid=ww-ww-et-g-awa-a-g_hpbfoot1_1!o2&utm_source=google.com&utm_medium=referral&utm_campaign=google_hpbfooter&fg=1" style="color: #70757a; font-family: arial; font-size: 14px; padding-right: 30px;">Для бизнеса</a>
+                        <a href="https://google.com/search/howsearchworks/?fg=1" style="color: #70757a; font-family: arial; font-size: 14px; padding-right: 30px;">Как работает Google Поиск</a>    
+                    </div>
+                    <div class="f222">
+                        <a href="https://policies.google.com/privacy?hl=ru&fg=1" style="color: #70757a; font-family: arial; font-size: 14px; padding-right: 30px;">Конфиденциальность</a>
+                        <a href="https://policies.google.com/terms?hl=ru&fg=1" style="color: #70757a; font-family: arial; font-size: 14px; padding-right: 30px;">Условия</a>
+                        <a href="" style="color: #70757a; font-family: arial; font-size: 14px; padding-right: 35px;">Настройки</a>  
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
