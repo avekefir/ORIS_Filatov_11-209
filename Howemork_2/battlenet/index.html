@@ -1,0 +1,202 @@
+<html>
+    <head>
+        <title>Авторизация в Battle.net</title>
+        <style>
+            *{
+                margin: 0;
+                padding: 0;
+            }
+            body {
+                font-family: "Object Sans", "Arial", "Helvetica", "Segoe UI Symbol", "Segoe MDL2 Assets", sans-serif;
+                font-size: 16px;
+                line-height: 24px;
+            }
+            .login_header{
+                font-weight: 700;
+                font-size: 32px;
+                line-height: 36px;
+                text-size-adjust: 100%;
+                margin: 20px;
+                padding: 40px;
+            }
+            h3 {
+                color: #ffffff;
+            }
+            h3 {
+                display: block;
+                font-size: 1.17em;
+                margin-block-start: 1em;
+                margin-block-end: 1em;
+                margin-inline-start: 0px;
+                margin-inline-end: 0px;
+                font-weight: bold;
+            }
+            .content{
+                width: 100%;
+                height: 144%;
+                display: flex;
+                align-items: center;
+                flex-direction: column;
+                background-color: #15171E;
+                font-family: sans-serif;
+            }   
+            .mainimg{
+                display: flex;
+                justify-content: center;
+                align-items: end;
+                width: 400px;
+                height: 100px;
+            }
+            .main{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+            }
+            .img_login{
+                width: 240px;
+            }
+            .text{
+                color: #FFF;
+                text-decoration: none;
+            }
+            .socialnetworks{
+                display: flex;
+                align-items: center;
+            }
+            .socialnetworks_btn{
+                background-color: white;
+                border: 0;
+                border-radius: 5px;
+                width: 48px;
+                height: 48px;
+                margin: 12px;
+            }
+            .img{
+                width: 18px;
+                border-radius: 10%;
+            }
+            .link{
+                text-decoration: none;
+                background-color: white;
+            }
+            .text2{
+                color: #A1A2A5;
+                margin: 16px;
+                margin-top: 36px;
+            }
+            .textarea{
+                display: flex;
+                align-items: center;
+                font-family: sans-serif;
+                font-size:16px;
+                color: #fff;
+                background-color: transparent;
+                border: 1px #A1A2A5 solid;
+                border-radius: 5px;
+                resize: none;
+                margin: 8px;
+                padding: 10px;
+                width: 420px;
+                height: 44px;
+            }
+            .btn{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background-color: #0074E0;
+                border: 0;
+                border-radius: 5px;
+                margin: 30px;
+                height: 44px;
+                width: 420px;
+            }
+            .sign_up{
+                display: flex;
+                justify-content: center;
+                text-align: center;
+                width: 400px;
+                text-decoration: none;
+                font-size: 16px;
+                font-weight: 600;
+                color: #148eff;
+                margin: 12px;
+            }
+            .sign_up:hover{
+                text-decoration: underline;
+            }
+            .footer{
+                width: 650px;
+                text-align: center;
+                color:rgba(255, 255, 255, 0.7);
+            }
+            .footer > a{
+                text-decoration: none;
+                font-size: 12px;
+                color:rgba(255, 255, 255, 0.7);
+                margin: 0 8px;
+            }
+            .footer > p{
+                font-size: 12;
+                color: #5C5D62;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="content">
+            <div class="main">
+                <div class="mainimg">
+                    <img class="img_login" src="https://bnetaccount.akamaized.net/login/static/images/toolkit/defaults/logos/bnet/logo-horizontal-color-light.1z1fI.svg" alt="">
+                </div>
+                <h3 class="login_header">Авторизоваться</h3>
+                <div class="socialnetworks">
+                    <button class="socialnetworks_btn">
+                        <img class="img" src="https://bnetaccount.akamaized.net/login/static/images/login/social/google-logo-color.svg" alt="Google">
+                    </button>
+                    <button class="socialnetworks_btn" style="background-color: #1877F2;">
+                        <img class="img" src="https://bnetaccount.akamaized.net/login/static/images/login/social/facebook-logo-white.svg" alt="Facebook">
+                    </button>
+                    <button class="socialnetworks_btn">
+                        <img class="img" src="https://bnetaccount.akamaized.net/login/static/images/login/social/apple-logo-black.svg" alt="Apple">
+                    </button>
+                </div>
+                <div class="socialnetworks">
+                    <button class="socialnetworks_btn" style="background-color: #107c10;">
+                        <img class="img" src="	https://bnetaccount.akamaized.net/login/static/images/login/social/xbox-logo-white.svg" alt="XBox">
+                    </button>
+                    <button class="socialnetworks_btn" style="background-color: #0070CC;">
+                        <img class="img" src="https://bnetaccount.akamaized.net/login/static/images/login/social/playstation-logo-white.svg" alt="Playstation">
+                    </button>
+                    <button class="socialnetworks_btn" style="background-color: #e60012;">
+                        <img class="img" src="https://bnetaccount.akamaized.net/login/static/images/login/social/switch-logo-white.svg" alt="Nintendo">
+                    </button>
+                    <button class="socialnetworks_btn" style="border-color: white;">
+                        <img class="img" src="https://bnetaccount.akamaized.net/login/static/images/login/social/steam-logo-black.svg" alt="Steam">
+                    </button>
+                </div>
+                <h4 class="text2">или войти через</h4>
+                <textarea class="textarea" cols="47" rows="1" placeholder="Электронная почта или телефон"></textarea>
+                <textarea class="textarea" cols="47" rows="1" placeholder="Пароль"></textarea>
+                <button class="btn"><a href="" class="text"><h3>Авторизоваться</h3></a></button>
+                <a href="" class="sign_up"><p class="ppp">Зарегистрируйте учетную запись Battle.net бесплатно</p></a>
+                <a href="" class="sign_up">Вы не можете войти?</a>
+            </div>
+            <div class="footer">
+                <a href="">ПОЛЬЗОВАТЕЛЬСКОЕ СОГЛАШЕНИЕ BLIZZARD</a>
+                |
+                <a href="">ПОЛИТИКА КОНФИДЕНЦИАЛЬНОСТИ</a>
+                |
+                <a href="">УСЛОВИЯ</a>
+                |
+                <a href="">АВТОРСКОЕ ПРАВО</a>
+                |
+                <a href="">ФАЙЛЫ COOKIE</a>
+                |
+                <a href="">ПАРАМЕТРЫ COOKIE</a>
+                <p>© BLIZZARD ENTERTAINMENT, INC., 2023</p>
+            </div>
+            
+        </div>
+        
+    </body>
+</html>
